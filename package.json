@@ -16,6 +16,11 @@
     "nodemon": "^3.0.1"
   },
   "devDependencies": {
-    "dotenv": "^16.3.1"
+    "dotenv": "^16.3.1",
+    "standard": "^17.1.0"
+  }, 
+  "eslintConfig": {
+    "extends": "standard"
+    
   }
 }
