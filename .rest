@@ -1,1 +1,1 @@
-GET https://test-f9oo.onrender.com/users
+GET https://test-f9oo.onrender.com/contacts
