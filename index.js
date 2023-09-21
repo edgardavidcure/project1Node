@@ -9,6 +9,18 @@ app
   .use(cors())
   .use(express.json())
   .use(express.urlencoded({ extended: true }))
+  .use((req, res, next) => {
+    res.setHeader('Access-control-Allow-origin', '*');
+    res.setHeader(
+      'Access-Control-Allow-Headers',
+      'Origin, x-requested-With, Content-Type, Accept, Z-key',
+    );
+    res.setHeader(
+      'Access-Control-Allow-Methods',
+      'GET, POST, PUT, DELETE, OPTIONS',
+    );
+    next();
+  })
   .use('/', require('./routes'));
 
 db.mongoose

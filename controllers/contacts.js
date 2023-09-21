@@ -3,6 +3,7 @@ const Contact = db.contacts;
 
 const addContact = (req, res) => {
   // Validate request
+  //#swagger.tags=['Contacts']
 
   if (!req.body) {
     res.status(400).send({ message: 'Content can not be empty!' });
@@ -32,6 +33,8 @@ const addContact = (req, res) => {
 };
 
 const getAllContacts = (req, res) => {
+  //#swagger.tags=['Contacts']
+
   Contact.find(
     {},
     {
@@ -54,6 +57,8 @@ const getAllContacts = (req, res) => {
 };
 
 const getSingleContact = (req, res) => {
+  //#swagger.tags=['Contacts']
+
   const userId = req.params.id;
   Contact.find({ _id: userId })
     .then((data) => {
@@ -71,6 +76,8 @@ const getSingleContact = (req, res) => {
 };
 
 const updateSingleContact = (req, res) => {
+  //#swagger.tags=['Contacts']
+
   if (!req.body) {
     return res.status(400).send({
       message: 'Data to update can not be empty!',
@@ -101,6 +108,8 @@ const updateSingleContact = (req, res) => {
 };
 
 const deleteSingleContact = (req, res) => {
+  //#swagger.tags=['Contacts']
+
   const userId = req.params.id;
 
   Contact.findByIdAndRemove(userId)
@@ -124,6 +133,8 @@ const deleteSingleContact = (req, res) => {
 
 // Delete all Temples from the database.
 const deleteAllContacts = (req, res) => {
+  //#swagger.tags=['Contacts']
+
   Contact.deleteMany({})
     .then((data) => {
       res.send({
