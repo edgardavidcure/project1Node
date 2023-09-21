@@ -76,9 +76,16 @@ const updateSingleContact = (req, res) => {
       message: 'Data to update can not be empty!',
     });
   }
+  const contact = {
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    favoriteColor: req.body.favoriteColor,
+    birthday: req.body.birthday,
+  };
   const userId = req.params.id;
 
-  Contact.findByIdAndUpdate(userId, req.body, { useFindAndModify: false })
+  Contact.replaceOne({ _id: userId }, contact)
     .then((data) => {
       if (!data) {
         res.status(404).send({
